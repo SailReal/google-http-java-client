@@ -22,11 +22,6 @@ import com.google.api.client.util.Sleeper;
 import com.google.api.client.util.StreamingContent;
 import com.google.api.client.util.StringUtils;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
-import io.opencensus.common.Scope;
-import io.opencensus.contrib.http.util.HttpTraceAttributeConstants;
-import io.opencensus.trace.AttributeValue;
-import io.opencensus.trace.Span;
-import io.opencensus.trace.Tracer;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.Properties;
@@ -198,9 +193,6 @@ public final class HttpRequest {
 
   /** Sleeper. */
   private Sleeper sleeper = Sleeper.DEFAULT;
-
-  /** OpenCensus tracing component. */
-  private final Tracer tracer = OpenCensusUtils.getTracer();
 
   /**
    * Determines whether {@link HttpResponse#getContent()} of this request should return raw input
@@ -860,13 +852,7 @@ public final class HttpRequest {
     Preconditions.checkNotNull(requestMethod);
     Preconditions.checkNotNull(url);
 
-    Span span =
-        tracer
-            .spanBuilder(OpenCensusUtils.SPAN_NAME_HTTP_REQUEST_EXECUTE)
-            .setRecordEvents(OpenCensusUtils.isRecordEvent())
-            .startSpan();
     do {
-      span.addAnnotation("retry #" + (numRetries - retriesRemaining));
       // Cleanup any unneeded response from a previous iteration
       if (response != null) {
         response.ignore();
@@ -881,10 +867,6 @@ public final class HttpRequest {
       }
       // build low-level HTTP request
       String urlString = url.build();
-      addSpanAttribute(span, HttpTraceAttributeConstants.HTTP_METHOD, requestMethod);
-      addSpanAttribute(span, HttpTraceAttributeConstants.HTTP_HOST, url.getHost());
-      addSpanAttribute(span, HttpTraceAttributeConstants.HTTP_PATH, url.getRawPath());
-      addSpanAttribute(span, HttpTraceAttributeConstants.HTTP_URL, urlString);
 
       LowLevelHttpRequest lowLevelHttpRequest = transport.buildRequest(requestMethod, urlString);
       Logger logger = HttpTransport.LOGGER;
@@ -914,14 +896,11 @@ public final class HttpRequest {
       if (!suppressUserAgentSuffix) {
         if (originalUserAgent == null) {
           headers.setUserAgent(USER_AGENT_SUFFIX);
-          addSpanAttribute(span, HttpTraceAttributeConstants.HTTP_USER_AGENT, USER_AGENT_SUFFIX);
         } else {
           String newUserAgent = originalUserAgent + " " + USER_AGENT_SUFFIX;
           headers.setUserAgent(newUserAgent);
-          addSpanAttribute(span, HttpTraceAttributeConstants.HTTP_USER_AGENT, newUserAgent);
         }
       }
-      OpenCensusUtils.propagateTracingContext(span, headers);
 
       // headers
       HttpHeaders.serializeHeaders(headers, logbuf, curlbuf, logger, lowLevelHttpRequest);
@@ -1004,18 +983,8 @@ public final class HttpRequest {
       lowLevelHttpRequest.setTimeout(connectTimeout, readTimeout);
       lowLevelHttpRequest.setWriteTimeout(writeTimeout);
 
-      // switch tracing scope to current span
-      @SuppressWarnings("MustBeClosedChecker")
-      Scope ws = tracer.withSpan(span);
-      OpenCensusUtils.recordSentMessageEvent(span, lowLevelHttpRequest.getContentLength());
       try {
         LowLevelHttpResponse lowLevelHttpResponse = lowLevelHttpRequest.execute();
-        if (lowLevelHttpResponse != null) {
-          OpenCensusUtils.recordReceivedMessageEvent(span, lowLevelHttpResponse.getContentLength());
-          span.putAttribute(
-              HttpTraceAttributeConstants.HTTP_STATUS_CODE,
-              AttributeValue.longAttributeValue(lowLevelHttpResponse.getStatusCode()));
-        }
         // Flag used to indicate if an exception is thrown before the response is constructed.
         boolean responseConstructed = false;
         try {
@@ -1033,8 +1002,6 @@ public final class HttpRequest {
         if (!retryOnExecuteIOException
             && (ioExceptionHandler == null
                 || !ioExceptionHandler.handleIOException(this, retryRequest))) {
-          // static analysis shows response is always null here
-          span.end(OpenCensusUtils.getEndSpanOptions(null));
           throw e;
         }
         // Save the exception in case the retries do not work and we need to re-throw it later.
@@ -1042,8 +1009,6 @@ public final class HttpRequest {
         if (loggable) {
           logger.log(Level.WARNING, "exception thrown while executing request", e);
         }
-      } finally {
-        ws.close();
       }
 
       // Flag used to indicate if an exception is thrown before the response has completed
@@ -1100,7 +1065,6 @@ public final class HttpRequest {
         }
       }
     } while (retryRequest);
-    span.end(OpenCensusUtils.getEndSpanOptions(response == null ? null : response.getStatusCode()));
 
     if (response == null) {
       // Retries did not help resolve the execute exception, re-throw it.
@@ -1214,12 +1178,6 @@ public final class HttpRequest {
   public HttpRequest setSleeper(Sleeper sleeper) {
     this.sleeper = Preconditions.checkNotNull(sleeper);
     return this;
-  }
-
-  private static void addSpanAttribute(Span span, String key, String value) {
-    if (value != null) {
-      span.putAttribute(key, AttributeValue.stringAttributeValue(value));
-    }
   }
 
   private static String getVersion() {
