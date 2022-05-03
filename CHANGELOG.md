@@ -1,5 +1,25 @@
 # Changelog
 
+### [1.41.7](https://github.com/googleapis/google-http-java-client/compare/v1.41.6...v1.41.7) (2022-04-11)
+
+
+### Dependencies
+
+* revert dependency com.google.protobuf:protobuf-java to v3.19.4 ([#1626](https://github.com/googleapis/google-http-java-client/issues/1626)) ([076433f](https://github.com/googleapis/google-http-java-client/commit/076433f3c233a757f31d5fa39bb6cedbb43b8361))
+
+### [1.41.6](https://github.com/googleapis/google-http-java-client/compare/v1.41.5...v1.41.6) (2022-04-06)
+
+
+### Bug Fixes
+
+* `Content-Encoding: gzip` along with `Transfer-Encoding: chunked` sometimes terminates early ([#1608](https://github.com/googleapis/google-http-java-client/issues/1608)) ([941da8b](https://github.com/googleapis/google-http-java-client/commit/941da8badf64068d11a53ac57a4ba35b2ad13490))
+
+
+### Dependencies
+
+* update dependency com.google.errorprone:error_prone_annotations to v2.12.1 ([#1622](https://github.com/googleapis/google-http-java-client/issues/1622)) ([4e1101d](https://github.com/googleapis/google-http-java-client/commit/4e1101d7674cb5715b88a00750cdd5286a9ae077))
+* update dependency com.google.protobuf:protobuf-java to v3.20.0 ([#1621](https://github.com/googleapis/google-http-java-client/issues/1621)) ([640dc40](https://github.com/googleapis/google-http-java-client/commit/640dc4080249b65e5cabb7e1ae6cd9cd5b11bd8e))
+
 ### [1.41.5](https://github.com/googleapis/google-http-java-client/compare/v1.41.4...v1.41.5) (2022-03-21)
 
 
