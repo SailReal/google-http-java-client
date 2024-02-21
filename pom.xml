@@ -6,34 +6,62 @@
   <artifactId>google-http-client-parent</artifactId>
   <version>1.44.1</version><!-- {x-version-update:google-http-client-parent:current} -->
   <packaging>pom</packaging>
-  <name>Parent for the Google HTTP Client Library for Java</name>
-  <description>Google HTTP Client Library for Java</description>
+  <name>Fork of com.google.http-client:google-http-client-parent for Cryptomator for Android</name>
+  <description>
+    Unofficial, unaffiliated and unassociated fork of https://github.com/googleapis/google-http-java-client for internal use in Cryptomator for Android.
+  </description>
 
-  <url>https://github.com/googleapis/google-http-java-client</url>
+  <url>https://github.com/cryptomator/google-http-java-client</url>
 
   <issueManagement>
     <system>GitHub</system>
-    <url>https://github.com/googleapis/google-http-java-client/issues</url>
+    <url>https://github.com/cryptomator/google-http-java-client/issues</url>
   </issueManagement>
 
   <inceptionYear>2011</inceptionYear>
 
   <scm>
-    <connection>scm:git:https://github.com/googleapis/google-http-java-client.git</connection>
-    <developerConnection>scm:git:git@github.com:googleapis/google-http-java-client.git</developerConnection>
-    <url>https://github.com/googleapis/google-http-java-client</url>
+    <connection>scm:git:https://github.com/cryptomator/google-http-java-client.git</connection>
+    <developerConnection>scm:git:git@github.com:cryptomator/google-http-java-client.git</developerConnection>
+    <url>https://github.com/cryptomator/google-http-java-client</url>
   </scm>
 
+  <organization>
+    <name>Cryptomator</name>
+    <url>https://cryptomator.org/</url>
+  </organization>
+
+  <!-- Organization of the forked repository at https://github.com/googleapis/google-http-java-client
   <organization>
     <name>Google</name>
     <url>https://www.google.com/</url>
   </organization>
+  -->
 
   <developers>
+    <developer>
+      <id>cryptomator</id>
+      <name>Cryptomator</name>
+      <url>https://cryptomator.org/</url>
+      <roles>
+        <role>Maintainer of this fork</role>
+      </roles>
+    </developer>
+    <developer>
+      <id>google</id>
+      <name>Google</name>
+      <url>https://www.google.com/</url>
+      <roles>
+        <role>Maintainer of the forked repository at https://github.com/googleapis/google-http-java-client</role>
+      </roles>
+    </developer>
     <developer>
       <id>chingor</id>
       <name>Jeff Ching</name>
       <email>chingor@google.com</email>
+      <roles>
+        <role>Maintainer of the forked repository at https://github.com/googleapis/google-http-java-client</role>
+      </roles>
     </developer>
   </developers>
 
@@ -422,40 +450,40 @@
                 <link>https://static.javadoc.io/doc/com.google.code.gson/gson/${project.gson.version}</link>
                 <link>https://google.github.io/guava/releases/${project.guava.version}/api/docs/</link>
               </links>
-              <doctitle>Google HTTP Client Library for Java ${project.version}</doctitle>
+              <doctitle>Fork of https://github.com/googleapis/google-http-java-client for Cryptomator for Android ${project.version}</doctitle>
               <excludePackageNames>com.google.api.client.findbugs:com.google.api.client.test.:com.google.api.services</excludePackageNames>
               <overview>${basedir}/overview.html</overview>
               <groups>
                 <group>
-                  <title>google-http-client</title>
+                  <title>Fork of com.google.http-client:google-http-client for Cryptomator for Android</title>
                   <packages>com.google.api.client.http*:com.google.api.client.json*:com.google.api.client.testing*:com.google.api.client.util*</packages>
                 </group>
                 <group>
-                  <title>google-http-client-appengine</title>
+                  <title>Fork of com.google.http-client:google-http-client-appengine for Cryptomator for Android</title>
                   <packages>com.google.api.client.extensions.appengine*</packages>
                 </group>
                 <group>
-                  <title>google-http-client-android</title>
+                  <title>Fork of com.google.http-client:google-http-client-android for Cryptomator for Android</title>
                   <packages>com.google.api.client.extensions.android*</packages>
                 </group>
                 <group>
-                  <title>google-http-client-protobuf</title>
+                  <title>Fork of com.google.http-client:google-http-client-protobuf for Cryptomator for Android</title>
                   <packages>com.google.api.client.protobuf*:com.google.api.client.http.protobuf*</packages>
                 </group>
                 <group>
-                  <title>google-http-client-gson</title>
+                  <title>Fork of com.google.http-client:google-http-client-gson for Cryptomator for Android</title>
                   <packages>com.google.api.client.json.gson*</packages>
                 </group>
                 <group>
-                  <title>google-http-client-jackson2</title>
+                  <title>Fork of com.google.http-client:google-http-client-jackson2 for Cryptomator for Android</title>
                   <packages>com.google.api.client.json.jackson2.*</packages>
                 </group>
                 <group>
-                  <title>google-http-client-xml</title>
+                  <title>Fork of com.google.http-client:google-http-client-xml for Cryptomator for Android</title>
                   <packages>com.google.api.client.xml*:com.google.api.client.http.xml*</packages>
                 </group>
               </groups>
-              <windowtitle>google-http-java-client ${project.version}</windowtitle>
+              <windowtitle>Fork of https://github.com/googleapis/google-http-java-client for Cryptomator for Android ${project.version}</windowtitle>
             </configuration>
           </execution>
         </executions>

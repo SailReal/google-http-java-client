@@ -9,10 +9,9 @@
   </parent>
   <artifactId>google-http-client</artifactId>
   <version>1.44.1</version><!-- {x-version-update:google-http-client:current} -->
-  <name>Google HTTP Client Library for Java</name>
+  <name>Fork of com.google.http-client:google-http-client for Cryptomator for Android</name>
   <description>
-    Google HTTP Client Library for Java. Functionality that works on all supported Java platforms,
-    including Java 7 (or higher) desktop (SE) and web (EE), Android, and Google App Engine.
+    Unofficial, unaffiliated and unassociated fork of https://github.com/googleapis/google-http-java-client for internal use in Cryptomator for Android.
   </description>
 
   <build>

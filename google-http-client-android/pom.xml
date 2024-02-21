@@ -9,7 +9,10 @@
   </parent>
   <artifactId>google-http-client-android</artifactId>
   <version>1.44.1</version><!-- {x-version-update:google-http-client-android:current} -->
-  <name>Android Platform Extensions to the Google HTTP Client Library for Java.</name>
+  <name>Fork of com.google.http-client:google-http-client-android for Cryptomator for Android</name>
+  <description>
+    Unofficial, unaffiliated and unassociated fork of https://github.com/googleapis/google-http-java-client for internal use in Cryptomator for Android.
+  </description>
 
   <build>
     <plugins>
