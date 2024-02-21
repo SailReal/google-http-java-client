@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!--
+  ~ ** Notice of Modification **
+  ~
+  ~ This file has been altered from its original version by the Cryptomator team.
+  ~ For a detailed history of modifications, please refer to the version control log.
+  ~
+  ~ The original file can be found at https://github.com/googleapis/google-http-java-client
+  ~
+  ~ ~~
+  ~
+  ~ https://cryptomator.org/
+  -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
   <modelVersion>4.0.0</modelVersion>
