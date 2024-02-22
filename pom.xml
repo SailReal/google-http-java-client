@@ -17,7 +17,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.google.http-client</groupId>
   <artifactId>google-http-client-parent</artifactId>
-  <version>1.44.1</version><!-- {x-version-update:google-http-client-parent:current} -->
+  <version>1.44.2-dev.0001</version><!-- {x-version-update:google-http-client-parent:current} -->
   <packaging>pom</packaging>
   <name>Fork of com.google.http-client:google-http-client-parent for Cryptomator for Android</name>
   <description>
