@@ -6,16 +6,12 @@
 >
 > For a project designed for use by the public, please refer to the [original repository.](https://github.com/googleapis/google-http-java-client)
 >
-> The README of the original project is reproduced below for your convenience and to provide proper attribution.  
+> An excerpt from the README of the original project is reproduced below for your convenience and to provide proper attribution.  
 > This project is not affiliated, associated, endorsed by, or in any way officially connected with Google, or any of its subsidiaries or its affiliates.
 
 ---
 
-# Original README
-
-[![Maven][maven-version-image]][maven-version-link]
-![Stability][stability-image]
-[![CI Status][ci-status-image]][ci-status-link]
+# Excerpt from the original README
 
 ## Description
 Written by Google, the Google HTTP Client Library for Java is a flexible, efficient, and powerful
@@ -68,9 +64,3 @@ might result, and you are not guaranteed a compilation error.
 [google-oauth-client]: https://github.com/googleapis/google-oauth-java-client
 [google-api-client]: https://github.com/googleapis/google-api-java-client
 [contributions]: CONTRIBUTING.md
-
-[ci-status-image]: https://github.com/googleapis/google-http-java-client/actions/workflows/ci.yaml/badge.svg?event=push
-[ci-status-link]: https://github.com/googleapis/google-http-java-client/actions?query=event%3Apush
-[maven-version-image]: https://img.shields.io/maven-central/v/com.google.http-client/google-http-client.svg
-[maven-version-link]: https://search.maven.org/search?q=g:com.google.http-client%20AND%20a:google-http-client&core=gav
-[stability-image]: https://img.shields.io/badge/stability-stable-green
