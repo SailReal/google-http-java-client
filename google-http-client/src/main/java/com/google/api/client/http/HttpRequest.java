@@ -10,6 +10,17 @@
  * is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
+ *
+ * ** Notice of Modification **
+ *
+ * This file has been altered from its original version by the Cryptomator team.
+ * For a detailed history of modifications, please refer to the version control log.
+ *
+ * The original file can be found at https://github.com/googleapis/google-http-java-client
+ *
+ * --
+ *
+ * https://cryptomator.org/
  */
 
 package com.google.api.client.http;

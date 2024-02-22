@@ -4,11 +4,11 @@
   <parent>
     <groupId>com.google.http-client</groupId>
     <artifactId>google-http-client-parent</artifactId>
-    <version>1.43.0</version><!-- {x-version-update:google-http-client-parent:current} -->
+    <version>1.44.1</version><!-- {x-version-update:google-http-client-parent:current} -->
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>google-http-client-protobuf</artifactId>
-  <version>1.43.0</version><!-- {x-version-update:google-http-client-protobuf:current} -->
+  <version>1.44.1</version><!-- {x-version-update:google-http-client-protobuf:current} -->
   <name>Protocol Buffer extensions to the Google HTTP Client Library for Java.</name>
 
   <build>
@@ -32,15 +32,6 @@
       </plugin>
       <plugin>
         <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>source-jar</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <groupId>org.xolstice.maven.plugins</groupId>

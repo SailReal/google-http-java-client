@@ -1,18 +1,30 @@
+<!--
+  ~ ** Notice of Modification **
+  ~
+  ~ This file has been altered from its original version by the Cryptomator team.
+  ~ For a detailed history of modifications, please refer to the version control log.
+  ~
+  ~ The original file can be found at https://github.com/googleapis/google-http-java-client
+  ~
+  ~ ~~
+  ~
+  ~ https://cryptomator.org/
+  -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.google.http-client</groupId>
     <artifactId>google-http-client-parent</artifactId>
-    <version>1.43.0</version><!-- {x-version-update:google-http-client-parent:current} -->
+    <version>1.44.1</version><!-- {x-version-update:google-http-client-parent:current} -->
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>google-http-client</artifactId>
-  <version>1.43.0</version><!-- {x-version-update:google-http-client:current} -->
-  <name>Google HTTP Client Library for Java</name>
+  <version>1.44.1</version><!-- {x-version-update:google-http-client:current} -->
+  <name>Fork of com.google.http-client:google-http-client for Cryptomator for Android</name>
   <description>
-    Google HTTP Client Library for Java. Functionality that works on all supported Java platforms,
-    including Java 7 (or higher) desktop (SE) and web (EE), Android, and Google App Engine.
+    Unofficial, unaffiliated and unassociated fork of https://github.com/googleapis/google-http-java-client for internal use in Cryptomator for Android.
   </description>
 
   <build>
@@ -62,15 +74,6 @@
       </plugin>
       <plugin>
         <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>source-jar</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
       </plugin>
       <plugin>
         <artifactId>maven-jar-plugin</artifactId>
@@ -118,6 +121,12 @@
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>
       <artifactId>httpclient</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>commons-logging</groupId>
+          <artifactId>commons-logging</artifactId>
+        </exclusion>
+      </exclusions>
     </dependency>
     <dependency>
       <groupId>org.apache.httpcomponents</groupId>

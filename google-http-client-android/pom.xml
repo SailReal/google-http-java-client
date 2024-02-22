@@ -1,15 +1,31 @@
+<!--
+  ~ ** Notice of Modification **
+  ~
+  ~ This file has been altered from its original version by the Cryptomator team.
+  ~ For a detailed history of modifications, please refer to the version control log.
+  ~
+  ~ The original file can be found at https://github.com/googleapis/google-http-java-client
+  ~
+  ~ ~~
+  ~
+  ~ https://cryptomator.org/
+  -->
+
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
   <modelVersion>4.0.0</modelVersion>
   <parent>
     <groupId>com.google.http-client</groupId>
     <artifactId>google-http-client-parent</artifactId>
-    <version>1.43.0</version><!-- {x-version-update:google-http-client-parent:current} -->
+    <version>1.44.1</version><!-- {x-version-update:google-http-client-parent:current} -->
     <relativePath>../pom.xml</relativePath>
   </parent>
   <artifactId>google-http-client-android</artifactId>
-  <version>1.43.0</version><!-- {x-version-update:google-http-client-android:current} -->
-  <name>Android Platform Extensions to the Google HTTP Client Library for Java.</name>
+  <version>1.44.1</version><!-- {x-version-update:google-http-client-android:current} -->
+  <name>Fork of com.google.http-client:google-http-client-android for Cryptomator for Android</name>
+  <description>
+    Unofficial, unaffiliated and unassociated fork of https://github.com/googleapis/google-http-java-client for internal use in Cryptomator for Android.
+  </description>
 
   <build>
     <plugins>
@@ -24,18 +40,6 @@
         </configuration>
       </plugin>
       <plugin>
-        <artifactId>maven-source-plugin</artifactId>
-        <executions>
-          <execution>
-            <id>source-jar</id>
-            <phase>compile</phase>
-            <goals>
-              <goal>jar</goal>
-            </goals>
-          </execution>
-        </executions>
-      </plugin>
-      <plugin>
         <artifactId>maven-jar-plugin</artifactId>
         <configuration>
           <archive>  
@@ -44,7 +48,10 @@
             </manifestEntries>
           </archive> 
         </configuration>
-      </plugin> 
+      </plugin>
+      <plugin>
+        <artifactId>maven-source-plugin</artifactId>
+      </plugin>
     </plugins>
   </build>
   <dependencies>
